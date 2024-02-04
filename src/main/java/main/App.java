@@ -25,9 +25,9 @@ public class App
 
                 switch(i) {
                     case 1:
-                    System.out.println("Anna opiskelian nimi?");
+                    System.out.println("Anna opiskelijan nimi?");
                     String opNimi = sc.nextLine();
-                    System.out.println("Anna opiskelian opiskelia numero:");
+                    System.out.println("Anna opiskelijan opiskelijanumero:");
                     a = sc.nextLine();
                     int opNumero = Integer.parseInt(a);
 

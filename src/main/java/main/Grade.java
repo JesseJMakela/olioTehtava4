@@ -22,7 +22,7 @@ public class Grade implements Comparable<Grade>{
     
     public void tulosta()
     {
-        System.out.println(kurssi + ":" + numero);
+        System.out.println(kurssi + ": " + numero);
     }
     public int compareTo(Grade grade) {
         return Integer.compare(this.numero, grade.getNumero());

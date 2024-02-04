@@ -7,6 +7,11 @@ public class Calculator
 {
     public double calculateKeskiarvo(ArrayList<Grade> grades) 
     {
+        if (grades.isEmpty()) 
+        {
+            return 0.0;
+        }
+
         int sum = 0;
         for (Grade grade : grades) 
         {
@@ -20,6 +25,11 @@ public class Calculator
     
 
     public double calculateMedian(ArrayList<Grade> grades) {
+        if (grades.isEmpty()) 
+        {
+            return 0.0;
+        }
+
         Collections.sort(grades);
     
         int size = grades.size();
