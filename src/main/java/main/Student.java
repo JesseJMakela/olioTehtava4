@@ -22,24 +22,34 @@ public class Student {
         kurssit.add(grade);
     }
 
-    public String getName() {
+    public String getName() 
+    {
         return opNimi;
     }
 
-    public void tulostaTiedot(){
+    public void tulostaTiedot()
+    {
         System.out.println(opNumero+": "+opNimi);
     }
 
     public void kirjoitaTiedot(BufferedWriter writer) throws IOException
     {
-        writer.write(opNumero+": " + opNimi + "\n");
+        writer.write(opNumero + ": " + opNimi + ": ");
+        for (Grade grade : kurssit) 
+        {
+            writer.write(grade.getKurssi() + ": " + grade.getNumero() + ": ");
+        }
+        writer.write("\n");
     }
 
-    public void tulostaKurssit(){
-        if (kurssit.isEmpty()){
+    public void tulostaKurssit()
+    {
+        if (kurssit.isEmpty())
+        {
             System.out.println("Opiskelijalla ei ole suoritteita");
         }
-        for (Grade grade : kurssit){
+        for (Grade grade : kurssit)
+        {
             grade.tulosta();
             }
     }

@@ -18,12 +18,14 @@ public class App
         boolean exit = false;
         while (!exit) {
             System.out.println( "1) Lisää opiskelija, 2) Listaa opiskelijat, 3) Lisää opiskelijalle suorite, 4) Listaa opiskelijan suoritteet, 5) Laske opiskelijan suoritusten keskiarvo, 6) Laske opiskelijan suoritusten mediaani, 7) Tallenna opiskelijat tiedostoon, 8) Lataa opiskelijat tiedostosta, 0) Lopeta ohjelma" );
-            if (sc.hasNext()) {
+            if (sc.hasNext()) 
+            {
                 int i = 0;
                 String stringInput = sc.nextLine();
                 i = Integer.parseInt(stringInput);
 
-                switch(i) {
+                switch(i) 
+                {
                     case 1:
                     System.out.println("Anna opiskelijan nimi?");
                     String opNimi = sc.nextLine();
@@ -95,7 +97,8 @@ public class App
                     break;
                 }
             }
-            else {
+            else 
+            {
                 System.out.println("Syöte on väärä");        
             }
         }

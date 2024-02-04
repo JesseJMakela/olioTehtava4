@@ -1,6 +1,7 @@
 package main;
 
-public class Grade implements Comparable<Grade>{
+public class Grade implements Comparable<Grade>
+{
     private int numero;
     private String kurssi;
 

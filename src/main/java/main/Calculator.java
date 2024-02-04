@@ -24,7 +24,8 @@ public class Calculator
 
     
 
-    public double calculateMedian(ArrayList<Grade> grades) {
+    public double calculateMedian(ArrayList<Grade> grades) 
+    {
         if (grades.isEmpty()) 
         {
             return 0.0;

@@ -12,29 +12,36 @@ public class University
     public ArrayList<Student> students  = new ArrayList<>();
     private String FILENAME;
 
-    public void FileName(){
+    public void FileName()
+    {
         this.FILENAME = "students.txt";
     }
 
 
-    public void newStudent(Student student) {
+    public void newStudent(Student student) 
+    {
         students.add(student);
     }
 
-    public void listStudents(){
+    public void listStudents()
+    {
         System.out.println("Opiskelijat:");
-        for (Student student : students){
+        for (Student student : students)
+        {
             student.tulostaTiedot();
         }
     }
-    public void addGradetoStudent(int opId, String suorite, int numero) {
+    public void addGradetoStudent(int opId, String suorite, int numero) 
+    {
         Student student=students.get(opId);
         student.addGrade(numero, suorite);
     }
 
-    public void listStudents2() {
+    public void listStudents2() 
+    {
         int i = 0;
-        for (Student student : students) {
+        for (Student student : students) 
+        {
             System.out.println(i++ + ": " + student.getName());
         }
     }
@@ -60,34 +67,36 @@ public class University
         }
     }
 
-    public void loadStudentsFromFile() 
-    {
-       
-        
-        try 
-        {
+    public void loadStudentsFromFile() {
+        try {
             students.clear();
-
-            if (FILENAME == null) 
-            {
+    
+            if (FILENAME == null) {
                 FileName();
             }
-
+    
             BufferedReader reader = new BufferedReader(new FileReader(this.FILENAME));
             String line;
-            while ((line = reader.readLine()) != null) 
-            {
+            while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(":");
-                if (parts.length == 2) 
-                {
+                if (parts.length >= 3) {
                     int opNumero = Integer.parseInt(parts[0].trim());
                     String opNimi = parts[1].trim();
                     Student student = new Student(opNumero, opNimi);
+    
+                    for (int i = 2; i < parts.length; i += 2) {
+                        if (i + 1 < parts.length) {
+                            String kurssi = parts[i].trim();
+                            int numero = Integer.parseInt(parts[i + 1].trim());
+                            student.addGrade(numero, kurssi);
+                        }
+                    }
+    
                     students.add(student);
                 }
             }
-        } 
-        catch (IOException e) {
+            reader.close();
+        } catch (IOException e) {
             System.out.println("Tiedoston lukeminen epäonnistui");
             e.printStackTrace();
         }
